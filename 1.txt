@@ -1,0 +1,34 @@
+(* Checks whether element is present *)
+let rec IsPresent elem ls = 
+ 
+   match ls with
+        
+       [] -> false
+     
+       (head::tail) -> if(head = elem) then true else (IsPresent elem tail);;
+
+
+
+(* Returns the union of the two lists  *)
+let rec union l1 l2 =
+    
+    match l1 with
+        
+       [] -> l2
+        
+       (head::tail) -> if(IsParent head l2 = false) then ([head]@(union tail l2))
+            
+                                                         else (union tail l2);;
+
+
+(* Returns the intersection of the two lists *)
+let rec intersect list1 list2 =
+    
+     match list1 with
+        
+            [] -> []
+        
+            (head::tail) -> if (IsPresent head l2) then ([head] @ (intersect tail list2))
+            
+                                                             else (intersect tail list2);;
+
